@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Alliya's playlist · Arjan nights</title>
+  <meta name="description" content="A little surprise. Your favourite music. A moment Just for Alliya.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+    :root {
+      --cream: #f3eadb;
+      --muted: #b9b09d;
+      --gold: #deb979;
+      --bg: #171d1a
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer
+    }
+
+    a {
+      color: inherit
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 6px
+    }
+
+    nav {
+      max-width: 1320px;
+      margin: auto;
+      padding: 28px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ffffff15
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 23px
+    }
+
+    .tiny {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    .navlink {
+      font-size: 13px;
+      text-decoration: none
+    }
+
+    .navlink span {
+      color: var(--gold);
+      padding-left: 12px
+    }
+
+    main {
+      max-width: 1320px;
+      margin: auto;
+      padding: 0 6%
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      align-items: center;
+      gap: 65px;
+      padding: 80px 0 70px
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase
+    }
+
+    .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-right: 9px
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(54px, 6.7vw, 91px);
+      font-weight: 500;
+      line-height: 1.07;
+      letter-spacing: -3px;
+      margin: 23px 0
+    }
+
+    h1 em {
+      color: var(--gold);
+      font-weight: 500
+    }
+
+    .intro {
+      font-size: 15px;
+      line-height: 1.9;
+      max-width: 375px;
+      color: var(--muted)
+    }
+
+    .cta {
+      display: inline-flex;
+      gap: 22px;
+      align-items: center;
+      background: var(--cream);
+      color: #1b211d;
+      text-decoration: none;
+      border-radius: 40px;
+      padding: 17px 25px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 20px
+    }
+
+    .footnote {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 20px
+    }
+
+    .art {
+      min-height: 420px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(ellipse at 50% 70%, #b68d4738, transparent 65%);
+      border: 1px solid #ffffff15;
+      border-radius: 220px 220px 12px 12px;
+      overflow: hidden
+    }
+
+    .art:before {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border: 1px solid #deb97930;
+      border-radius: 210px 210px 6px 6px
+    }
+
+    .record {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: repeating-radial-gradient(circle, #202521 0 2px, #111612 3px 4px);
+      box-shadow: 0 25px 55px #0007;
+      display: grid;
+      place-items: center;
+      animation: spin 24s linear infinite
+    }
+
+    .label {
+      width: 116px;
+      height: 116px;
+      border-radius: 50%;
+      background: #c9a569;
+      color: #253025;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      font-family: 'Playfair Display';
+      font-size: 24px;
+      line-height: 1.1
+    }
+
+    .label small {
+      font: 8px 'DM Sans';
+      letter-spacing: 2px;
+      margin-top: 9px
+    }
+
+    .hole {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #171d1a;
+      margin-top: 10px
+    }
+
+    .art-tag {
+      position: absolute;
+      bottom: 27px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold)
+    }
+
+    .star {
+      position: absolute;
+      top: 55px;
+      right: 50px;
+      font-size: 40px;
+      color: var(--gold)
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .divider {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px
+    }
+
+    .divider:before,
+    .divider:after {
+      content: '';
+      height: 1px;
+      flex: 1;
+      background: #ffffff18
+    }
+
+    .music {
+      padding: 55px 0 70px;
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 70px
+    }
+
+    h2 {
+      font-family: 'Playfair Display';
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 1.2;
+      margin: 16px 0
+    }
+
+    .music p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8
+    }
+
+    .pill {
+      display: inline-block;
+      border: 1px solid #ffffff25;
+      border-radius: 30px;
+      padding: 9px 15px;
+      color: var(--gold);
+      font-size: 11px;
+      margin-top: 10px
+    }
+
+    iframe {
+      width: 100%;
+      height: 352px;
+      border: 0;
+      border-radius: 14px;
+      background: #232b24
+    }
+
+    .fallback {
+      display: block;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 11px
+    }
+
+    .note {
+      padding: 45px;
+      background: #232b24;
+      border: 1px solid #ffffff10;
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 70px;
+      border-radius: 4px
+    }
+
+    .note h2 {
+      font-size: 33px
+    }
+
+    .note p {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px
+    }
+
+    .note .sign {
+      color: var(--gold);
+      font-family: 'Playfair Display';
+      font-style: italic;
+      font-size: 22px
+    }
+
+    footer {
+      padding: 25px 0;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #ffffff18;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1px
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      background: #171d1af7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+      backdrop-filter: blur(18px)
+    }
+
+    .gift {
+      max-width: 450px
+    }
+
+    .envelope {
+      font-size: 65px;
+      margin-bottom: 35px
+    }
+
+    .gift h2 {
+      font-size: 48px
+    }
+
+    .gift p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8
+    }
+
+    .gift button {
+      border: 0
+    }
+
+    .overlay[hidden] {
+      display: none
+    }
+
+    details {
+      margin-bottom: 30px;
+      font-size: 11px;
+      color: var(--muted)
+    }
+
+    summary {
+      cursor: pointer
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+      max-width: 480px
+    }
+
+    input,
+    textarea {
+      background: #232b24;
+      color: var(--cream);
+      border: 1px solid #ffffff25;
+      padding: 12px;
+      font: inherit;
+      border-radius: 6px
+    }
+
+    form button {
+      padding: 12px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--gold)
+    }
+
+    #status {
+      color: var(--gold)
+    }
+
+    @media(max-width:700px) {
+      nav {
+        padding: 23px 6%
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 45px 0
+      }
+
+      h1 {
+        font-size: 64px
+      }
+
+      .art {
+        min-height: 340px
+      }
+
+      .record {
+        width: 250px;
+        height: 250px
+      }
+
+      .music {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 40px 0
+      }
+
+      .note {
+        padding: 28px 20px;
+        margin-bottom: 40px
+      }
+
+      h2 {
+        font-size: 35px
+      }
+
+      footer {
+        gap: 20px;
+        font-size: 9px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        animation: none !important;
+        scroll-behavior: auto !important
+      }
+    }
+
+    .control {
+      background: #deb979;
+      color: #171d1a;
+      padding: 12px 16px;
+      border: 0;
+      border-radius: 25px;
+      font-weight: 600
+    }
+
+    .control:disabled {
+      opacity: .4;
+      cursor: default
+    }
+
+    .song {
+      width: 100%;
+      text-align: left;
+      padding: 12px;
+      background: transparent;
+      color: #f3eadb;
+      border: 0;
+      border-bottom: 1px solid #ffffff18
+    }
+
+    .song.active {
+      color: #deb979;
+      background: #ffffff09
+    }
+
+    audio {
+      margin-top: 10px
+    }
+
+    #error {
+      color: #ffb2a3
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay" id="surprise">
+    <div class="gift">
+      <div class="envelope" aria-hidden="true">✉</div>
+      <div class="eyebrow">A little something for you</div>
+      <h2>Some surprises<br>sound better.</h2>
+      <p>Put your headphones on.<br>This little corner of the internet is yours.</p><button class="cta" id="open">Open
+        your surprise <span>↗</span></button>
+    </div>
+  </div>
+  <nav>
+    <div class="brand">Just for Doctor saab<span style="color:var(--gold)">.</span></div><a class="navlink" href="#music">Alliya's
+      soundtrack <span>↗</span></a>
+  </nav>
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>A mixtape, with a little heart</div>
+        <h1>Good music.<br>Great company.<br><em>You.</em></h1>
+        <p class="intro">Some songs just hit different when they remind you of someone. So here’s a little space for
+          you, your favourite artist, and a moment to slow down.</p><a class="cta" href="#music">Let’s listen
+          <span>▶</span></a>
+        <div class="footnote">Made with thought. Best enjoyed with headphones.</div>
+      </div>
+      <div class="art" role="img" aria-label="A golden Arjan Dhillon vinyl record"><span class="star">✧</span>
+        <div class="record">
+          <div class="label">Arjan<br>Dhillon<small>Just for Some one special</small><span class="hole"></span></div>
+        </div>
+        <div class="art-tag">SIDE A · THE GOOD MOMENTS</div>
+      </div>
+    </section>
+    <div class="divider">ONE ARTIST. ALL THE FEELS.</div>
+    <section class="music" id="music">
+      <div>
+        <div class="eyebrow">Your listening corner</div>
+        <h2>A little Arjan.<br>A whole lot of vibe.</h2>
+        <p>No occasion needed. Press play and make yourself comfortable.</p>
+        <div class="pill">♫ &nbsp; Arjan Dhillon on repeat</div>
+        <p style="font-size:11px;margin-top:25px">Your Arjan Dhillon collection, ready to play.<br>No internet needed.
+          Songs are not included.</p>
+      </div>
+      <div class="offline-player">
+        <p id="now" role="status">Add your songs to the music folder and list them in songs.js.</p><audio id="audio"
+          controls style="width:100%"></audio>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px"><button class="control" id="previous"
+            disabled>← Previous</button><button class="control" id="random" disabled>⤨ Random song</button><button
+            class="control" id="next" disabled>Next →</button></div>
+        <p id="error" role="alert"></p>
+        <ol id="playlist" style="padding-left:0;list-style:none;max-height:260px;overflow:auto"></ol>
+        <p style="font-size:11px">Your soundtrack, just a play button away.</p>
+      </div>
+    </section>
+    <section class="note">
+      <div class="eyebrow">A note between the songs</div>
+      <h2 id="dedication">Hey, Alliya.</h2>
+      <p id="message">I wanted to make you something a little different. Nothing fancy to unwrap — just your favourite
+        music and a reminder that you’re a pretty special person to have around. Hope this makes you smile.</p>
+      <div class="sign">This one’s for you. ♡</div>
+    </section>
+    <footer><span>Alliya's playlist · A LITTLE MUSICAL SURPRISE</span><span>Made with ♡ & good taste</span></footer>
+  </main><!-- Edit headings and the personal note above directly in this HTML file. -->
+  <script src="songs.js"></script>
+  <script>
+    // Songs are listed in songs.js and stored in the music folder.
+    const audio = document.getElementById('audio');
+    const now = document.getElementById('now');
+    const playlist = document.getElementById('playlist');
+    const error = document.getElementById('error');
+    const songs = window.SONGS || [];
+    let current = 0;
+
+    document.getElementById('open').onclick = function () {
+      document.getElementById('surprise').hidden = true;
+      document.querySelector('.navlink').focus();
+    };
+
+    function selectSong(index) {
+      current = (index + songs.length) % songs.length;
+      const song = songs[current];
+      audio.src = 'music/' + song.file.split('/').map(encodeURIComponent).join('/');
+      now.textContent = song.title;
+      error.textContent = '';
+      Array.from(playlist.children).forEach(function (item, i) {
+        const button = item.firstChild;
+        button.classList.toggle('active', i === current);
+        if (i === current) button.setAttribute('aria-current', 'true');
+        else button.removeAttribute('aria-current');
+      });
+    }
+
+    function playSong(index) {
+      if (!songs.length) return;
+      selectSong(index);
+      audio.play().catch(function () {
+        error.textContent = 'Press play below. If it still does not play, check the filename in songs.js.';
+      });
+    }
+
+    songs.forEach(function (song, index) {
+      const item = document.createElement('li');
+      const button = document.createElement('button');
+      button.className = 'song';
+      button.textContent = (index + 1) + '. ' + song.title;
+      button.onclick = function () {playSong(index);};
+      item.appendChild(button);
+      playlist.appendChild(item);
+    });
+
+    if (songs.length) {
+      selectSong(0);
+      ['previous', 'random', 'next'].forEach(function (id) {
+        document.getElementById(id).disabled = false;
+      });
+    }
+
+    document.getElementById('previous').onclick = function () {playSong(current - 1);};
+    document.getElementById('next').onclick = function () {playSong(current + 1);};
+    document.getElementById('random').onclick = function () {
+      // Choose a different song when more than one is available.
+      let index = 0;
+      if (songs.length > 1) {
+        index = Math.floor(Math.random() * (songs.length - 1));
+        if (index >= current) index++;
+      }
+      playSong(index);
+    };
+    audio.onended = function () {playSong(current + 1);};
+    audio.onerror = function () {
+      error.textContent = 'Song not found or unsupported. Check the music folder and the filename in songs.js.';
+    };
+  </script>
+</body>
+
+</html>
